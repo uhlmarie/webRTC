@@ -5,6 +5,7 @@ import 'firebase/firestore';
 
 const firebaseConfig = {
   //TODO: enter your app config
+  
 };
 
 if (!firebase.apps.length) {
@@ -57,8 +58,8 @@ callButton.onclick = async () => {
   //TODO: create callDoc
   //TODO: create offerCandidates
   //TODO: create answerCandidates
+  //TODO: id of callDoc should be id of call
 
-  callInput.value = callDoc.id;
 
   // Get candidates for caller, save to db
   pc.onicecandidate = (event) => {
@@ -66,9 +67,6 @@ callButton.onclick = async () => {
   };
 
   // TODO: Create offer
-  
-
-  await callDoc.set({ offer });
 
   // Listen for remote answer
   callDoc.onSnapshot((snapshot) => {
@@ -79,8 +77,6 @@ callButton.onclick = async () => {
   answerCandidates.onSnapshot((snapshot) => {
    //TODO: when answer received, add to peer connection
   });
-
-  hangupButton.disabled = false;
 };
 
 // 3. Answer the call with the unique ID
@@ -103,8 +99,7 @@ answerButton.onclick = async () => {
 
   //TODO: create const answer
  
-
-  await callDoc.update({ answer });
+  //TODO: update calldoc with answer
 
   offerCandidates.onSnapshot((snapshot) => {
     snapshot.docChanges().forEach((change) => {
