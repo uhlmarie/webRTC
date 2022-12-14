@@ -99,8 +99,7 @@ answerButton.onclick = async () => {
   const offerDescription = callData.offer;
   await pc.setRemoteDescription(new RTCSessionDescription(offerDescription));
 
-  const answerDescription = await pc.createAnswer();
-  await pc.setLocalDescription(answerDescription);
+  //TODO: create answerDescription and set it
 
   //TODO: create const answer
  
